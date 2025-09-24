@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LE PETIT COFFEE | Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+   <header>
+    <div class="logo">LE PETIT COFFEE</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="about.html">Acerca de Nosotros</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+    <div class="iconos">
+        <a href="cart.html" class="carrito-icono"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+        <div class="busqueda-global">
+            <input type="text" id="busqueda-global-input" placeholder="Buscar...">
+            <i class="fas fa-search" id="busqueda-global-btn"></i>
+        </div>
+    </div>
+</header>
+
+    <main>
+        <section class="hero">
+            <h1>Despierta tus sentidos con el mejor café</h1>
+            <p>Descubre el aroma y el sabor de nuestros granos tostados artesanalmente.</p>
+            <a href="menu.html" class="btn-principal">Explora nuestro Menú</a>
+        </section>
+
+        <section class="productos-destacados">
+            <h2>Nuestros Favoritos</h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card" data-nombre="Café Americano o Negro" data-tipo="café" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="1.65">
+                <img src="https://i.blogs.es/139e0f/cafe-americano2/450_1000.jpeg" alt="Café Americano o Negro">
+                <div class="producto-info">
+                    <h3>Café Americano o Negro</h3>
+                    <p>$1.65</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+               
+                <div class="producto-card" data-nombre="Café Capuchino" data-tipo="café" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="3.75">
+                <img src="https://prod-app.breville.com/thumbnail/recipe/1726116895/Italian+Capuccino+with+chocolate+1080x1440_1080x1440.jpg" alt="Café Capuchino">
+                <div class="producto-info">
+                    <h3>Café Capuchino</h3>
+                    <p>$3.75</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+                
+                <div class="producto-card" data-nombre="Chiskey" data-tipo="postres" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="1.75">
+                <img src="https://lashadaspanama.com/wp-content/uploads/2021/01/20210202_154000-scaled-e1694099904311.jpg" alt="Chiskey">
+                <div class="producto-info">
+                    <h3>Chiskey</h3>
+                    <p>$1.75</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LE PETIT COFFEE. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-product-name"></h2>
+            <p id="modal-product-ingredients"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LE PETIT COFFEE | Menú</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">LE PETIT COFFEE</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="about.html">Acerca de Nosotros</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="iconos">
+            <a href="cart.html" class="carrito-icono"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+            <div class="busqueda-container">
+                <input type="text" id="busqueda-input" placeholder="Buscar cafés...">
+            </div>
+        </div>
+    </header>
+
+    <main class="menu-page">
+        <h2>Nuestro Menú de Cafés</h2>
+        
+        <div class="filtros">
+            <button class="filtro-item activo" data-filtro="todos">Todos</button>
+            <button class="filtro-item" data-filtro="café">Café</button>
+            <button class="filtro-item" data-filtro="postres">Postres</button>
+        </div>
+
+        <div class="productos-grid">
+
+            <div class="producto-card" data-nombre="Café Americano o Negro" data-tipo="café" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="1.65">
+                <img src="https://i.blogs.es/139e0f/cafe-americano2/450_1000.jpeg" alt="Café Americano o Negro">
+                <div class="producto-info">
+                    <h3>Café Americano o Negro</h3>
+                    <p>$1.65</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto-card" data-nombre="Café Americano con Leche" data-tipo="café" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="3.00">
+                <img src="https://i.blogs.es/421374/cafe-con-leche2/840_560.jpg" alt="Café Americano con Leche">
+                <div class="producto-info">
+                    <h3>Café Americano con Leche</h3>
+                    <p>$3.00</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+
+             <div class="producto-card" data-nombre="Café Latte" data-tipo="café" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="3.25">
+                <img src="https://placerydelirio.com/cdn/shop/files/LATTE-REGULAR-FOTOS-WEB-P_D_503x503.jpg?v=1749306244" alt="Café Latte">
+                <div class="producto-info">
+                    <h3>Café Latte</h3>
+                    <p>$3.25</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto-card" data-nombre="Café Capuchino" data-tipo="café" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="3.75">
+                <img src="https://prod-app.breville.com/thumbnail/recipe/1726116895/Italian+Capuccino+with+chocolate+1080x1440_1080x1440.jpg" alt="Café Capuchino">
+                <div class="producto-info">
+                    <h3>Café Capuchino</h3>
+                    <p>$3.75</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto-card" data-nombre="Café con Chocolate" data-tipo="café" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="3.50">
+                <img src="https://www.laprensagrafica.com/__export/1695177985315/sites/prensagrafica/img/2023/09/19/cioccolato-caldo.webp_20896918.webp" alt="Café con Chocolate">
+                <div class="producto-info">
+                    <h3>Café con Chocolate</h3>
+                    <p>$3.50</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto-card" data-nombre="Quesadilla" data-tipo="postres" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="1.25">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1_SZcJP2oRj_u-DUpcOQ0b3-sCy-Q6ZA6rw&s" alt="Quesadilla">
+                <div class="producto-info">
+                    <h3>Quesadilla</h3>
+                    <p>$1.25</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+
+             <div class="producto-card" data-nombre="Chiskey" data-tipo="postres" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="1.75">
+                <img src="https://lashadaspanama.com/wp-content/uploads/2021/01/20210202_154000-scaled-e1694099904311.jpg" alt="Chiskey">
+                <div class="producto-info">
+                    <h3>Chiskey</h3>
+                    <p>$1.75</p>
+                    <button class="btn-anadir">Añadir al Carrito</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LE PETIT COFFEE. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-product-name"></h2>
+            <p id="modal-product-ingredients"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

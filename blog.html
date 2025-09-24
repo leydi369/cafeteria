@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LE PETIT COFFEE | Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">LE PETIT COFFEE</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="about.html">Acerca de Nosotros</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="iconos">
+            <a href="cart.html" class="carrito-icono"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+            <a href="#"><i class="fas fa-search"></i></a>
+        </div>
+    </header>
+
+    <main class="blog-page">
+        <h2>Últimas Noticias de Nuestro Blog</h2>
+        <div class="blog-grid">
+            <div class="blog-post-card">
+                <img src="https://images.unsplash.com/photo-1579248466606-d760777593c2?q=80&w=1770&auto=format&fit=crop" alt="Guía para principiantes">
+                <div class="post-info">
+                    <h3>Guía para Principiantes: Cómo hacer el café perfecto en casa</h3>
+                    <p>por Juan Pérez | 15 de Octubre, 2025</p>
+                    <a href="#" class="btn-post">Leer más</a>
+                </div>
+            </div>
+            <div class="blog-post-card">
+                <img src="https://images.unsplash.com/photo-1549723793-19343037213c?q=80&w=1770&auto=format&fit=crop" alt="Historia del café">
+                <div class="post-info">
+                    <h3>De la Planta a la Taza: Un Viaje Histórico del Café</h3>
+                    <p>por María García | 10 de Octubre, 2025</p>
+                    <a href="#" class="btn-post">Leer más</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="blog-form-section"> <!--formato de blog compartir,subir blog -->
+            <h3>Comparte tu Historia de Café</h3>
+            <p>¿Eres un experto en café? ¡Sube tu propio blog y compártelo con nuestra comunidad!</p>
+            <form id="blog-submit-form" class="blog-form">
+                <label for="blog-title">Título del Blog:</label>
+                <input type="text" id="blog-title" required>
+                <label for="blog-author">Tu Nombre:</label>
+                <input type="text" id="blog-author" required>
+                <label for="blog-content">Contenido del Blog:</label>
+                <textarea id="blog-content" rows="10" required></textarea>
+                <button type="submit" class="btn-principal">Subir Blog</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LE PETIT COFFEE. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
