@@ -33,14 +33,47 @@
         <h2>Tu Carrito de Compras</h2>
         <div id="cart-items">
             </div>
+            
         <div id="cart-summary">
             <h3>Resumen del Pedido</h3>
             <p>Subtotal: <span id="cart-subtotal">$ 0.00</span></p>
             <p>Envío: <span id="cart-shipping">Gratis</span></p>
             <p>Total: <span id="cart-total">$ 0.00</span></p>
-            <button class="btn-principal">Proceder al Pago</button>
+            <button class="btn-principal" id="btn-proceder-pago">Proceder al Pago</button>
         </div>
     </main>
+
+    <div id="pago-modal" class="modal">
+    <div class="modal-pago-content">
+        <span class="close-button" id="close-pago-modal">&times;</span>
+        <h2 id="pago-titulo">Información de Pago</h2>
+
+        <form id="pago-form" class="pago-form">
+            <label for="tarjeta">Número de Tarjeta:</label>
+            <input type="text" id="tarjeta" required pattern="\d{16}" title="Debe contener 16 dígitos" maxlength="16" placeholder="XXXX-XXXX-XXXX-XXXX">
+
+            <div class="card-info">
+                <div class="input-group">
+                    <label for="vencimiento">Vencimiento (MM/AA):</label>
+                    <input type="text" id="vencimiento" required pattern="(0[1-9]|1[0-2])\/\d{2}" title="Formato MM/AA" maxlength="5" placeholder="MM/AA">
+                </div>
+                <div class="input-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" required pattern="\d{3,4}" title="Debe contener 3 o 4 dígitos" maxlength="4" placeholder="XXX">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-principal">Confirmar Pago</button>
+        </form>
+
+        <div id="pago-exitoso" class="payment-success" style="display:none;">
+            <i class="fas fa-check-circle" style="font-size: 3rem; color: green; margin-bottom: 1rem;"></i>
+            <h3>¡Pago Exitoso!</h3>
+            <p>Tu pedido será procesado y enviado en breve.</p>
+            <a href="index.html" class="btn-principal">Volver a Inicio</a>
+        </div>
+    </div>
+</div>
 
     <footer>
         <p>&copy; 2025 Le PETIT COFFEE. Todos los derechos reservados.</p>
