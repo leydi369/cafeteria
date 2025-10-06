@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let subtotal = 0;
 
         if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p>Tu carrito está vacío.</p>';
+            cartItemsContainer.innerHTML = '<p class="empty-cart-message">Tu carrito está vacío.</p>';
         }
         
         else {
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Lógica para modificar el carrito en la página 'cart.html'
+    // Lógica para modificar o eliminar el carrito en la página 'cart.html'
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('quantity-plus')) {
             const name = e.target.dataset.name;
@@ -119,11 +119,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+        //PROCESO DE PAGO (cart.html) ---
+    const btnProcederPago = document.getElementById('btn-proceder-pago');
+    const pagoModal = document.getElementById('pago-modal');
+    const closePagoModal = document.getElementById('close-pago-modal');
+    const pagoForm = document.getElementById('pago-form');
+    const pagoExitoso = document.getElementById('pago-exitoso');
+    const pagoTitulo = document.getElementById('pago-titulo');
+    
+    if (btnProcederPago) {
+        // 1. Abrir Modal de Pago
+        btnProcederPago.addEventListener('click', () => {
+            if (cart.length > 0) {
+                pagoModal.style.display = 'block';
+            } else {
+                alert('Añade productos al carrito antes de proceder al pago.');
+            }
+        });
+
+        // 2. Cerrar Modal de Pago y resetear
+        closePagoModal.addEventListener('click', () => {
+            pagoModal.style.display = 'none';
+            pagoForm.style.display = 'block';
+            pagoExitoso.style.display = 'none';
+            pagoTitulo.innerText = "Información de Pago";
+            pagoForm.reset();
+        });
+
+        // 3. Simulación de Pago Exitoso
+        pagoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Simulación de procesamiento (puedes añadir un spinner aquí)
+            setTimeout(() => {
+                pagoForm.style.display = 'none';
+                pagoTitulo.innerText = "¡Gracias por tu compra!";
+                pagoExitoso.style.display = 'block';
+                
+                // Limpia el carrito después del pago "exitoso"
+                cart = [];
+                saveCart(); 
+                renderCart();
+            }, 1000); // 1 segundo para simular la transacción
+        });
+    }
+
     // --- Funcionalidad del Blog Interactivo ---
     const blogSubmitForm = document.getElementById('blog-submit-form');
     const blogGrid = document.getElementById('blog-grid');
 
-    if (blogSubmitForm) {
+    if (blogSubmitForm && blogGrid) {
         blogSubmitForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const title = document.getElementById('blog-title').value;
@@ -141,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="#" class="btn-post">Leer más</a>
                 </div>
             `;
+            // Agrega el nuevo post al inicio de la lista
             blogGrid.prepend(newPost);
             blogSubmitForm.reset();
             alert('¡Tu blog ha sido enviado para revisión!');
@@ -152,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const busquedaGlobalInput = document.getElementById('busqueda-global-input');
     const busquedaGlobalBtn = document.getElementById('busqueda-global-btn');
 
+     // Búsqueda Global (desde index.html)
     if (busquedaGlobalBtn) {
         busquedaGlobalBtn.addEventListener('click', () => {
             const query = busquedaGlobalInput.value.trim();
@@ -162,66 +209,68 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica para ejecutar la búsqueda en la página de menú
-    if (window.location.pathname.endsWith('menu.html')) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchQuery = urlParams.get('search');
-        if (searchQuery) {
-            const busquedaInput = document.getElementById('busqueda-input');
-            const productos = document.querySelectorAll('.productos-grid .producto-card');
-            
-            busquedaInput.value = searchQuery;
-            busquedaInput.focus();
-            
-            productos.forEach(producto => {
-                const nombre = producto.dataset.nombre.toLowerCase();
-                if (nombre.includes(searchQuery.toLowerCase())) {
-                    producto.style.display = 'block';
-                } else {
-                    producto.style.display = 'none';
-                }
-            });
-        }
-    }/*Verificar*/
-
-
-    // Lógica para el filtro de búsqueda en 'menu.html'
-    const busquedaInput = document.getElementById('busqueda-input');
+      // Lógica para filtros y búsqueda local (solo en menu.html)
     const productos = document.querySelectorAll('.productos-grid .producto-card');
+    const busquedaInput = document.getElementById('busqueda-input');
+    const filtros = document.querySelectorAll('.filtro-item');
 
-    if (busquedaInput) {
-        busquedaInput.addEventListener('input', (e) => {
-            const searchText = e.target.value.toLowerCase();
-            productos.forEach(producto => {
-                const nombre = producto.dataset.nombre.toLowerCase();
-                if (nombre.includes(searchText)) {
-                    producto.style.display = 'block';
-                } else {
-                    producto.style.display = 'none';
-                }
-            });
+    const filtrarProductos = (query, tipo) => {
+        const queryLower = query.toLowerCase();
+        
+        productos.forEach(producto => {
+            const nombre = producto.dataset.nombre.toLowerCase();
+            const tipoProducto = producto.dataset.tipo;
+            
+            const coincideBusqueda = nombre.includes(queryLower);
+            const coincideFiltro = (tipo === 'todos' || tipoProducto === tipo);
+
+            if (coincideBusqueda && coincideFiltro) {
+                producto.style.display = 'block';
+            } else {
+                producto.style.display = 'none';
+            }
         });
     }
 
-    // Funcionalidad de filtros por botón
-    const filtros = document.querySelectorAll('.filtro-item');
-    if (filtros) {
-        filtros.forEach(filtro => {
-            filtro.addEventListener('click', (e) => {
-                const filtroSeleccionado = e.target.dataset.filtro;
+    if (window.location.pathname.endsWith('menu.html')) {
+        // 1. Búsqueda Local por Input (al escribir)
+        if (busquedaInput) {
+             busquedaInput.addEventListener('input', (e) => {
+                const query = e.target.value.trim();
+                const filtroActivo = document.querySelector('.filtro-item.activo').dataset.filtro;
+                filtrarProductos(query, filtroActivo);
+            });
+        }
+
+        // 2. Filtros por Botón
+        filtros.forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                // Desactivar todos los botones y activar el seleccionado
                 filtros.forEach(f => f.classList.remove('activo'));
                 e.target.classList.add('activo');
                 
-                productos.forEach(producto => {
-                    const tipoProducto = producto.dataset.tipo;
-                    if (filtroSeleccionado === 'todos' || tipoProducto === filtroSeleccionado) {
-                        producto.style.display = 'block';
-                    } else {
-                        producto.style.display = 'none';
-                    }
-                });
+                const tipo = e.target.dataset.filtro;
+                const query = busquedaInput ? busquedaInput.value.trim() : ''; // Usa el valor actual de la búsqueda
+                filtrarProductos(query, tipo);
             });
         });
+
+        // 3. Ejecutar Búsqueda Global al Cargar (si viene de index.html)
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('search');
+        
+        if (searchQuery && busquedaInput) {
+            busquedaInput.value = searchQuery;
+            busquedaInput.focus();
+            
+            // Asegura que los filtros de botón se reinicien al usar la búsqueda global
+            filtros.forEach(f => f.classList.remove('activo'));
+            document.querySelector('[data-filtro="todos"]').classList.add('activo');
+
+            // Aplica el filtro inicial con el término de búsqueda
+            filtrarProductos(searchQuery, 'todos'); 
+        }
+
     }
 
 
@@ -231,6 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalProductName = document.getElementById('modal-product-name');
     const modalProductIngredients = document.getElementById('modal-product-ingredients');
 
+    if (productos.length > 0 && modal) {
     // Abre el modal al hacer clic en un producto
     productos.forEach(card => {
         card.addEventListener('click', (e) => {
@@ -250,12 +300,20 @@ document.addEventListener('DOMContentLoaded', () => {
         closeButton.addEventListener('click', () => {
             modal.style.display = 'none';
         });
+        }
     }
 
     // Cierra el modal al hacer clic fuera
     window.addEventListener('click', (e) => {
         if (e.target == modal) {
             modal.style.display = 'none';
+        }
+        if (pagoModal && e.target == pagoModal) {
+            pagoModal.style.display = 'none';
+            pagoForm.style.display = 'block';
+            pagoExitoso.style.display = 'none';
+            pagoTitulo.innerText = "Información de Pago";
+            pagoForm.reset();
         }
     });
 
