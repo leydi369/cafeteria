@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+    <body>
 
    <header>
     <div class="logo">LE PETIT COFFEE</div>
@@ -35,7 +35,6 @@
     <main>
         <section class="hero">
             <h1>Despierta tus sentidos con el mejor café</h1>
-            <p>Descubre el aroma y el sabor de nuestros granos tostados artesanalmente.</p>
             <a href="menu.html" class="btn-principal">Explora nuestro Menú</a>
         </section>
 
@@ -43,7 +42,8 @@
             <h2>Nuestros Favoritos</h2>
             <div class="productos-grid">
                 
-                <div class="producto-card" data-nombre="Café Americano o Negro" data-tipo="café" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="1.65">
+                <div class="producto-card" data-nombre="Café Americano o Negro" data-tipo="café" data-ingredientes="Bebida elaborada con espresso y agua caliente, creada para suavizar la 
+                intensidad del espresso y hacerlo más similar al café de filtro." data-precio="1.65">
                 <img src="https://i.blogs.es/139e0f/cafe-americano2/450_1000.jpeg" alt="Café Americano o Negro">
                 <div class="producto-info">
                     <h3>Café Americano o Negro</h3>
@@ -51,17 +51,9 @@
                     <button class="btn-anadir">Añadir al Carrito</button>
                 </div>
             </div>
-               
-                <div class="producto-card" data-nombre="Café Capuchino" data-tipo="café" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="3.75">
-                <img src="https://prod-app.breville.com/thumbnail/recipe/1726116895/Italian+Capuccino+with+chocolate+1080x1440_1080x1440.jpg" alt="Café Capuchino">
-                <div class="producto-info">
-                    <h3>Café Capuchino</h3>
-                    <p>$3.75</p>
-                    <button class="btn-anadir">Añadir al Carrito</button>
-                </div>
-            </div>
                 
-                <div class="producto-card" data-nombre="Chiskey" data-tipo="postres" data-ingredientes="Una selección especial de granos tostados lentamente para un sabor suave y balanceado." data-precio="1.75">
+                <div class="producto-card" data-nombre="Chiskey" data-tipo="postres" data-ingredientes=" El cheesecake de fruta fresca es una deliciosa variante del clásico postre de queso. 
+                Esta versión incluye una base de galleta triturada y una suave mezcla de queso crema y crema de leche, sobre la cual se coloca una jugosa pulpa de fruta fresca." data-precio="1.75">
                 <img src="https://lashadaspanama.com/wp-content/uploads/2021/01/20210202_154000-scaled-e1694099904311.jpg" alt="Chiskey">
                 <div class="producto-info">
                     <h3>Chiskey</h3>
@@ -73,17 +65,17 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 LE PETIT COFFEE. Todos los derechos reservados.</p>
-    </footer>
-
-    <div id="product-modal" class="modal">
+     <div id="product-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2 id="modal-product-name"></h2>
             <p id="modal-product-ingredients"></p>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2025 LE PETIT COFFEE. Todos los derechos reservados.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
